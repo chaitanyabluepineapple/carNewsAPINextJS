@@ -1,0 +1,65 @@
+.container
+{
+    padding: 2rem;
+}
+
+.title
+{
+    text-align: -webkit-left;
+}
+
+.content
+{
+    text-align: -webkit-left;
+}
+
+.description
+{
+    text-align: -webkit-left;
+}
+
+.image
+{
+    margin: 3rem;
+    margin-left: 25%;
+    width: 50%;
+    border: 2px dashed black;
+    border-radius: 5px;
+}
+
+.date
+{
+    text-align: -webkit-center;
+}
+
+.name
+{
+    text-align: -webkit-center;
+}
+
+.author
+{
+    text-align: -webkit-center;
+}
+
+.url
+{
+    text-align: -webkit-center;
+}
+
+.url .span
+{
+    text-align: center;
+    color: black;
+    text-decoration: underline;
+    padding: 10px;
+}
+
+.url .span:hover
+{
+    text-align: center;
+    color: blue;
+    text-decoration: underline;
+    padding: 10px;
+}
+
