@@ -9,22 +9,22 @@ function Searchbox() {
     const [searchValue, setSearchValue] = useState("News");
     const [newsData, setNewsData] = useState([]);
 
+    //getData Function to fetch data accroding users search value
     const getAllData = async () => {
-        const url = `https://newsapi.org/v2/everything?apiKey=069bc61f2f154e118cce721f4e1a8520&qInTitle=${searchValue}`;
+        const url = `${process.env.NEXT_PUBLIC_URL}?apiKey=${process.env.NEXT_PUBLIC_API_KEY}&qInTitle=${searchValue}`;
         const response = await fetch(url);
         const resJon = await response.json();
-        console.log(resJon.articles);
         setNewsData(resJon.articles);
     }
 
     const handleChange = (e) => {
         e.preventDefault();
-        console.log(e.target.value);
         setSearchValue(e.target.value);
     };
 
     return (
         <div>
+            {/* Bootstraps CDN */}
             <Head>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="stylesheet" href=

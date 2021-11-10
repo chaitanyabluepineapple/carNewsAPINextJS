@@ -42,6 +42,7 @@
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
+  height: 25rem;
 }
 
 .card:hover {
@@ -50,7 +51,7 @@
 }
 
 .cardImg {
-  width: 100%;
+  width: 80%;
 }
 
 .cardText {

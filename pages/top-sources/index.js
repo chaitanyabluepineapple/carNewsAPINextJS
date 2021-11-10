@@ -1,14 +1,10 @@
 import Head from 'next/head'
-import styles from '../../styles/Headline.module.css'
+import styles from '../../styles/Sources.module.css'
 
 export const getServerSideProps = async pageContext => {
-    const apiResponse = await fetch(
-        'https://newsapi.org/v2/top-headlines/sources?apiKey=069bc61f2f154e118cce721f4e1a8520',
-    );
-
+    const apiResponse = await fetch(process.env.NEXT_PUBLIC_SOURCE_API);
     const resSources = await apiResponse.json();
     const { sources } = resSources;
-    console.log(sources)
 
     return {
         props: {
@@ -19,9 +15,9 @@ export const getServerSideProps = async pageContext => {
 
 
 const pagesourceslist = ({ sources }) => {
-    // console.log(sources)
     return (
         <div className={styles.container}>
+            {/* Bootstraps CDN */}
             <Head>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="stylesheet" href=

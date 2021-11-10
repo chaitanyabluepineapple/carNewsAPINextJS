@@ -2,10 +2,9 @@ import styles from '../../styles/Single.module.css'
 
 export const getStaticPaths = async () => {
 
-    const apiResponse = await fetch('https://newsapi.org/v2/top-headlines?country=in&apiKey=069bc61f2f154e118cce721f4e1a8520');
+    const apiResponse = await fetch(process.env.NEXT_PUBLIC_API);
     const response = await apiResponse.json();
     const { articles } = response;
-    console.log(articles)
 
     const paths = articles.map(index => ({
        params: { id: index.toString() }
@@ -20,10 +19,9 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (pageContext) => {
     const id = encodeURI(pageContext.params.id);
-    const response = await fetch(`https://newsapi.org/v2/everything?apiKey=069bc61f2f154e118cce721f4e1a8520&qInTitle=${id}`)
+    const response = await fetch(`${process.env.NEXT_PUBLIC_URL}?apiKey=${process.env.NEXT_PUBLIC_API_KEY}&qInTitle=${id}`)
     const singleData = await response.json();
     const { articles } = singleData;
-    console.log(articles)
     return {
         props: { 
             articles,
@@ -33,15 +31,14 @@ export const getStaticProps = async (pageContext) => {
 }
 
 const Details = ({ articles, id }) => {
-    console.log("data",articles)
-    console.log("id",id)
+
     return (
         <div className={styles.container}>
-            {articles.map((article, id) => (
+            {articles.map((article) => (
                 <div key={id} className={styles.mainBody} >
                         <h1 className={styles.title}>{article.title}</h1>
-                        <h2 className={styles.content}>{article.content}</h2>
-                        <p className={styles.description}>{article.description}</p>
+                        <h3 className={styles.content}>{article.content}</h3>
+                        <p dangerouslySetInnerHTML={{__html:article.description}} className={styles.description}></p> 
                         <img className={styles.image} src={article.urlToImage} />
                         <p className={styles.date}>Published Date: {article.publishedAt}</p>
                         <p className={styles.name}>{article.name}</p>
