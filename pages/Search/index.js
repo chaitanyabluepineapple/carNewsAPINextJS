@@ -12,6 +12,7 @@ function Searchbox() {
     //getData Function to fetch data accroding users search value
     const getAllData = async () => {
         const url = `${process.env.NEXT_PUBLIC_URL}?apiKey=${process.env.NEXT_PUBLIC_API_KEY}&qInTitle=${searchValue}`;
+        console.log(searchValue)
         const response = await fetch(url);
         const resJon = await response.json();
         setNewsData(resJon.articles);
@@ -42,8 +43,8 @@ function Searchbox() {
             <div className={styles.row}>
                 <div className={styles.container}>
                     {newsData.map((news) => (
-                        <> 
-                            <div className="col-sm-4 mx-auto">
+                        <>
+                            <div className="col-sm-3 mx-auto">
                                 <div className={styles.card}>
                                     <h5 className={styles.cardText}>{news.title} </h5>
                                     <img className={styles.cardImg} src={news.urlToImage} />

@@ -8,7 +8,7 @@ export const getServerSideProps = async pageContext => {
     const apiResponse = await fetch(process.env.NEXT_PUBLIC_API);
 
     const url = process.env.NEXT_PUBLIC_API;
-    console.log("Hello",url)
+    console.log("Hello", url)
     const response = await apiResponse.json();
     console.log(response)
     const { articles } = response;
@@ -25,7 +25,7 @@ export const getServerSideProps = async pageContext => {
 const allheadlines = ({ articles, pageNumber }) => {
     return (
         <div className={styles.container}>
-            
+
             <Head>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="stylesheet" href=
@@ -37,25 +37,25 @@ const allheadlines = ({ articles, pageNumber }) => {
 
             <div className={styles.row}>
                 <div className={styles.card}>
-                    {articles.map((article,index) => (
+                    {articles.map((article, index) => (
                         <Link href={'/news/' + article.title} key={article.title} passHref >
                             <div className="col-sm-4 mx-auto">
+
                                 <div className={styles.card1}>
                                     <h5 className={styles.cardText}>{article.title} </h5>
                                     <img className={styles.cardImg} src={article.urlToImage} />
                                     <h6 className={styles.cardText}>Published Date: {article.publishedAt}</h6>
                                 </div>
-                                
+
                             </div>
                         </Link>
                     ))}
-                    
+
                 </div>
 
             </div>
-
         </div>
-    
+
     );
 }
 

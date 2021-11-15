@@ -10,7 +10,6 @@ export const getStaticPaths = async () => {
        params: { id: index.toString() }
     })
     );
-
     return {
         paths, 
         fallback: true,
