@@ -39,7 +39,7 @@ const Details = ({ articles, id }) => {
                         <h3 className={styles.content}>{article.content}</h3>
                         <p dangerouslySetInnerHTML={{__html:article.description}} className={styles.description}></p> 
                         <img className={styles.image} src={article.urlToImage} />
-                        <p className={styles.date}>Published Date: {article.publishedAt}</p>
+                        <p className={styles.date}>News Published Date: {article.publishedAt}</p>
                         <p className={styles.name}>{article.name}</p>
                         <h4 className={styles.author}>Author Name: {article.author}</h4>
                         <p className={styles.url}>To Read Full News Visit This Link<a href={article.url} className={styles.span}>Click Here</a></p>
