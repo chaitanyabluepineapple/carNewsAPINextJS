@@ -44,7 +44,7 @@ const allheadlines = ({ articles, pageNumber }) => {
                                 <div className={styles.card1}>
                                     <h5 className={styles.cardText}>{article.title} </h5>
                                     <img className={styles.cardImg} src={article.urlToImage} />
-                                    <h6 className={styles.cardText}>Published Date: {article.publishedAt}</h6>
+                                    <h6 className={styles.cardText}>News Published Date: {article.publishedAt}</h6>
                                 </div>
 
                             </div>
